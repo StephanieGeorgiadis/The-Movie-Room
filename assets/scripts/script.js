@@ -92,15 +92,20 @@ function appendImageToCarousel(url, hreF, counter) {
     });
 }
 
+$(document).ready(function () {
+    $(".carousel").carousel();
+    $(".carousel").empty();
+    loadInitialCarousel();
+    $('.modal').modal();// for the model
+
+});
+
+
 
 
 // https://api.themoviedb.org/3/movie/550?api_key=cc93940bfc0e8ed610b23598baac74fd
 
-
 // https://api.themoviedb.org/3/movie/343611?api_key=cc93940bfc0e8ed610b23598baac74fd
-
-
-
 
 // https://image.tmdb.org/t/p/w500/vUHqBgt5e7jMmMnvP1Dk1gpnvZO.jpg
 // https://image.tmdb.org/t/p/w500/nDS8rddEK74HfAwCC5CoT6Cwzlt.jpg
@@ -112,15 +117,3 @@ function appendImageToCarousel(url, hreF, counter) {
 // get id of movie and get images
 
 // <a class="carousel-item" href="#one!"><img src="https://picsum.photos/200/300?random=1"></a>
-
-
-
-$(document).ready(function () {
-    $(".carousel").carousel();
-    $(".carousel").empty();
-    loadInitialCarousel();
-    $('.modal').modal();// for the model
-
-
-
-});
