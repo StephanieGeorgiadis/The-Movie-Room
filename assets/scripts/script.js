@@ -6,18 +6,18 @@
 var initialUrl = "https://api.themoviedb.org/3/search/movie?api_key=cc93940bfc0e8ed610b23598baac74fd&query=Australian&include_adult=false&region=Australian";
 var themapi_key = "?api_key=cc93940bfc0e8ed610b23598baac74fd";
 var imgLoadedCount = 0;
-var id =[];
+var id = [];
 
-function getMovieIDs(){
+function getMovieIDs() {
     $.ajax({
         url: initialUrl,
         method: "GET"
     }).then(function (response) {
         console.log(response);
-        for (var x=0; x<response.results.length; x++ ){
-            if(response.results[x].poster_path){
+        for (var x = 0; x < response.results.length; x++) {
+            if (response.results[x].poster_path) {
                 id.push(response.results[x].id);
-            }            
+            }
         }
         loadInitialCarousel(id);
     })
@@ -50,7 +50,7 @@ function loadCarousel(i) {
 
         if (imgLoadedCount == id.length) {
             $(".carousel-item").on("click", function () {
-                
+
                 if ($(this).attr("class").includes("active")) {
                     console.log(this);
                     var currentMovieId = this.attributes.href.value;
@@ -63,28 +63,28 @@ function loadCarousel(i) {
                     }).then(function (response) {
                         console.log(response);
                         $("#movieName").text(response.original_title);
-                        if(response.backdrop_path){
+                        if (response.backdrop_path) {
                             $("#movieImg").attr("src", "https://image.tmdb.org/t/p/w500" + response.backdrop_path);
                         }
-                        
-                        if(response.tagline !== ""){
-                            $("#movieTag").text("Tagline : "+response.tagline);
+
+                        if (response.tagline !== "") {
+                            $("#movieTag").text("Tagline : " + response.tagline);
                         }
-                        
-                        $("#movieDescription").text("Story: "+response.overview);
-                        if(Array.isArray(response.genres) && response.genres.length && response.popularity){
+
+                        $("#movieDescription").text("Story: " + response.overview);
+                        if (Array.isArray(response.genres) && response.genres.length && response.popularity) {
                             // console.log("test");
-                            $("#movieRating").text("Category: "+response.genres[0].name+ ".       Rating: "+response.popularity);
+                            $("#movieRating").text("Category: " + response.genres[0].name + ".       Rating: " + response.popularity);
                         }
-                        
-                        // openModel();                    
+
+                        openModel();                    
 
                         // document.ondblclick = function () {
                         //     var sel = (document.selection && document.selection.createRange().text) ||
                         //               (window.getSelection && window.getSelection().toString());
                         //     alert(sel);
                         //  };
-                         
+
                     })
                 }
             });
