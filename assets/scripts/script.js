@@ -29,7 +29,7 @@ function loadInitialCarousel() {
     }
 }
 
-function appendImageToCarousel(url, hreF, counter) {
+function appendImageToCarousel(url, hreF, counter) { 
     // console.log(counter);
 
     // Create Carousel Div
@@ -101,13 +101,14 @@ function displayMovieDetails(response) {
     }
 
     if (response.tagline !== "") {
-        $("#movieTag").text("Tagline : " + response.tagline);
+        $("#movieTag").html("<span><b>Tagline </b>: </span>" + response.tagline);
     }
 
-    $("#movieDescription").text("Story: " + response.overview);
+    $("#movieDescription").html("<span><b>Story</b>: </span>" + response.overview);
     if (Array.isArray(response.genres) && response.genres.length && response.popularity) {
         // console.log("test");
-        $("#movieRating").text("Category: " + response.genres[0].name + ".       Rating: " + response.popularity);
+        $("#movieCategory").html("<span><b>Category</b>: </span>" + response.genres[0].name);
+        $("#movieRating").html("<span><b>Rating</b>: </span>" + response.popularity);
     }
 }
 
@@ -164,6 +165,7 @@ function getDictionaryInfo(meaning, sel) {
             openModel();
         }
         var wordSearched = $("<h3>").text(sel);
+        wordSearched.attr("style", "text-transform: capitalize; background: lightgrey;");
         $("#modelsection").append(wordSearched);
 
         for (var q = 0; q < meaning.length; q++) {
@@ -182,16 +184,16 @@ function getDictionaryInfo(meaning, sel) {
 function displayFl(q, meaning) {
     // console.log("Displaying Word type");
     var wordType = $("<h5>").text(meaning[q].fl);
+    wordType.attr("style", "text-transform: capitalize;");
     $("#modelsection").append(wordType);
 }
 
 function displayShortdef(q, meaning) {
     for (var u = 0; u < meaning[q].shortdef.length; u++) {
         // console.log("Displaying Word meaning : " + u);
-        var shortDesc = $("<p>").text(meaning[q].shortdef[u]);
+        var shortDesc = $("<p>").text((u+1)+".  "+meaning[q].shortdef[u]);
         $("#modelsection").append(shortDesc);
     }
-
 }
 
 
