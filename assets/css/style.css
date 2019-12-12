@@ -2,10 +2,34 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-image: url(../images/extra_clean_paper.png);
 }
 
 main {
     flex: 1 0 auto;
+}
+
+#webHeader {
+    text-align: center;
+    padding: 0;
+    margin: 20px;
+    color: #ffffff;
+}
+
+#movieName {
+    text-align: center;
+}
+
+#movieTag {
+    text-align: justify;
+}
+
+#movieDescription {
+    text-align: justify;
+}
+
+#imgDiv {
+    text-align: center;
 }
 
 #power {
