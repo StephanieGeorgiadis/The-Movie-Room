@@ -1,9 +1,4 @@
-
-
-// $(".carousel").empty({fullWidth: true});// to make it full width
-
-// var id = [14672, 260312, 13852, 11646, 2759, 9555, 9659, 13433, 5257, 236, 13439, 67748, 24266, 26405, 298382, 36040, 256917, 43930, 14064, 9993];
-var initialUrl = "https://api.themoviedb.org/3/search/movie?api_key=cc93940bfc0e8ed610b23598baac74fd&query=Australian&include_adult=false&region=Australian";
+var initialUrl = "https://api.themoviedb.org/3/keyword/3094/movies?api_key=cc93940bfc0e8ed610b23598baac74fd&language=en-US&include_adult=false";
 var themapi_key = "?api_key=cc93940bfc0e8ed610b23598baac74fd";
 var imgLoadedCount = 0;
 var id = [];
@@ -99,28 +94,21 @@ function displayMovieDetails(response) {
     if (response.backdrop_path) {
         $("#movieImg").attr("src", "https://image.tmdb.org/t/p/w500" + response.backdrop_path);
     }
-
     if (response.tagline !== "") {
-        $("#movieTag").text("Tagline : " + response.tagline);
+        $("#movieTag").html("<span><b>Tagline </b>: </span>" + response.tagline);
     }
-
-    $("#movieDescription").text("Story: " + response.overview);
+    $("#movieDescription").html("<span><b>Story</b>: </span>" + response.overview);
     if (Array.isArray(response.genres) && response.genres.length && response.popularity) {
         // console.log("test");
-        $("#movieRating").text("Category: " + response.genres[0].name + ".       Rating: " + response.popularity);
+        $("#movieCategory").html("<span><b>Category</b>: </span>" + response.genres[0].name);
+        $("#movieRating").html("<span><b>Rating</b>: </span>" + response.popularity);
     }
 }
-
 
 function openModel() {
     var instance = M.Modal.getInstance($('.modal'));
     instance.open();
 };
-
-
-
-
-
 
 document.ondblclick = function () {
     var sel = (document.selection && document.selection.createRange().text) ||
@@ -146,7 +134,6 @@ function callDictionary(sel) {
         getDictionaryInfo(meaning, sel);
     })
 }
-
 
 function getDictionaryInfo(meaning, sel) {
     $("#modelsection").empty();// empty the section
@@ -188,14 +175,10 @@ function displayFl(q, meaning) {
 function displayShortdef(q, meaning) {
     for (var u = 0; u < meaning[q].shortdef.length; u++) {
         // console.log("Displaying Word meaning : " + u);
-        var shortDesc = $("<p>").text(meaning[q].shortdef[u]);
+        var shortDesc = $("<p>").text((u+1)+".  "+meaning[q].shortdef[u]);
         $("#modelsection").append(shortDesc);
     }
-
 }
-
-
-
 
 $(document).ready(function () {
     $(".carousel").carousel();
@@ -205,4 +188,3 @@ $(document).ready(function () {
     $('.modal').modal();// for the model
 
 });
-
