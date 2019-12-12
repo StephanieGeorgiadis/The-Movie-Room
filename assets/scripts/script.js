@@ -24,7 +24,7 @@ function loadInitialCarousel() {
     }
 }
 
-function appendImageToCarousel(url, hreF, counter) {
+function appendImageToCarousel(url, hreF, counter) { 
     // console.log(counter);
 
     // Create Carousel Div
@@ -97,6 +97,7 @@ function displayMovieDetails(response) {
     if (response.tagline !== "") {
         $("#movieTag").html("<span><b>Tagline </b>: </span>" + response.tagline);
     }
+
     $("#movieDescription").html("<span><b>Story</b>: </span>" + response.overview);
     if (Array.isArray(response.genres) && response.genres.length && response.popularity) {
         // console.log("test");
@@ -151,6 +152,7 @@ function getDictionaryInfo(meaning, sel) {
             openModel();
         }
         var wordSearched = $("<h3>").text(sel);
+        wordSearched.attr("style", "text-transform: capitalize; background: lightgrey;");
         $("#modelsection").append(wordSearched);
 
         for (var q = 0; q < meaning.length; q++) {
@@ -169,6 +171,7 @@ function getDictionaryInfo(meaning, sel) {
 function displayFl(q, meaning) {
     // console.log("Displaying Word type");
     var wordType = $("<h5>").text(meaning[q].fl);
+    wordType.attr("style", "text-transform: capitalize;");
     $("#modelsection").append(wordType);
 }
 
