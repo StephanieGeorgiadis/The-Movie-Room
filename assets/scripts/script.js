@@ -1,9 +1,4 @@
-
-
-// $(".carousel").empty({fullWidth: true});// to make it full width
-
-// var id = [14672, 260312, 13852, 11646, 2759, 9555, 9659, 13433, 5257, 236, 13439, 67748, 24266, 26405, 298382, 36040, 256917, 43930, 14064, 9993];
-var initialUrl = "https://api.themoviedb.org/3/search/movie?api_key=cc93940bfc0e8ed610b23598baac74fd&query=Australian&include_adult=false&region=Australian";
+var initialUrl = "https://api.themoviedb.org/3/keyword/3094/movies?api_key=cc93940bfc0e8ed610b23598baac74fd&language=en-US&include_adult=false";
 var themapi_key = "?api_key=cc93940bfc0e8ed610b23598baac74fd";
 var imgLoadedCount = 0;
 var id = [];
@@ -99,7 +94,6 @@ function displayMovieDetails(response) {
     if (response.backdrop_path) {
         $("#movieImg").attr("src", "https://image.tmdb.org/t/p/w500" + response.backdrop_path);
     }
-
     if (response.tagline !== "") {
         $("#movieTag").html("<span><b>Tagline </b>: </span>" + response.tagline);
     }
@@ -112,16 +106,10 @@ function displayMovieDetails(response) {
     }
 }
 
-
 function openModel() {
     var instance = M.Modal.getInstance($('.modal'));
     instance.open();
 };
-
-
-
-
-
 
 document.ondblclick = function () {
     var sel = (document.selection && document.selection.createRange().text) ||
@@ -147,7 +135,6 @@ function callDictionary(sel) {
         getDictionaryInfo(meaning, sel);
     })
 }
-
 
 function getDictionaryInfo(meaning, sel) {
     $("#modelsection").empty();// empty the section
@@ -196,9 +183,6 @@ function displayShortdef(q, meaning) {
     }
 }
 
-
-
-
 $(document).ready(function () {
     $(".carousel").carousel();
     $(".carousel").empty();
@@ -207,4 +191,3 @@ $(document).ready(function () {
     $('.modal').modal();// for the model
 
 });
-
