@@ -12,8 +12,8 @@ As an immigrant, I want to learn about Australian culture so that I better under
  
  ## This application works as follows
 
- ![picture alt](assets\images\HomePage.png "Home Page")
- ![picture alt](assets\images\Dictionary.png "Dictionary")
+ ![picture alt](assets/images/HomePage.png "Home Page")
+ ![picture alt](assets/images/Dictionary.png "Dictionary")
 
 1. Use could select a movie from the list shown in carousel.
 2. Application will show the selected movie details below the carousel
