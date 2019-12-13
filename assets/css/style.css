@@ -10,6 +10,7 @@ main {
 }
 
 #webHeader {
+    font-family: 'Signika', sans-serif;
     text-align: center;
     padding: 0;
     margin: 20px;
@@ -17,15 +18,26 @@ main {
 }
 
 #movieName {
+    font-family: 'Signika', sans-serif;
     text-align: center;
 }
 
 #movieTag {
     text-align: justify;
+    font-size: 20px;
+}
+
+#movieCategory {
+    font-size: 20px;
+}
+
+#movieRating {
+    font-size: 20px;
 }
 
 #movieDescription {
     text-align: justify;
+    font-size: 20px;
 }
 
 #imgDiv {
