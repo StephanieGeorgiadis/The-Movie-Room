@@ -4,12 +4,16 @@ An application for users to browse and select Australian movies.
 ## User Story
 As an immigrant, I want to learn about Australian culture so that I better understand Australian slang by watching Australian movies.
 
-## Links
+# Links
+
+## Repository
 
 -  Github
 > https://github.com/StephanieGeorgiadis/The-Movie-Room
 
--  Github Pages (Deployed page)
+## Deployed Application URL
+
+-  Github Pages 
 > https://stephaniegeorgiadis.github.io/The-Movie-Room/
 
  
